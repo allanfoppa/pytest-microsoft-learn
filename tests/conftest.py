@@ -1,5 +1,9 @@
 import pytest
 
+import json
+import pathlib
+
+
 @pytest.fixture
 def first_name():
   return 'Allan'
@@ -25,3 +29,8 @@ def is_even():
       list_output.append(number)
 
   return list_output
+
+@pytest.fixture
+def pokemon_info():
+  with pathlib.Path("tests/mocks/squirtle_info.json").open() as fp:
+    return json.load(fp)
